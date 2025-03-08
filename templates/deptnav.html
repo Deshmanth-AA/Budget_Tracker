@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.navbar {
+  width: 100%;
+  background-color: #424874;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: #ffff;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #645CAA;
+}
+
+.active {
+  background-color: #424874;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+h2{
+text-align: center;
+}
+</style>
+<body>
+
+<h2>BUDGET TRACKING SYSTEM</h2>
+
+
+<div class="navbar">
+  <a class="active" href="#d0" onclick="d0()" ><i class="fa fa-fw fa-home"></i> Employee</a> 
+  <a href="#d1" onclick="d1()"><i class="fa fa-fw fa-search"></i> Budget</a> 
+  <a href="#d2" onclick="d2()"><i class="fa fa-fw fa-envelope"></i>Expense</a> 
+  <a href="#d3" onclick="d3()"><i class="fa fa-fw fa-user"></i> Logout</a>
+</div>
+<div id="d0" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  select {
+  width: 20%; /* adjust the height as needed */
+  overflow-y: auto; /* add scrollbar if needed */
+}
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #424874;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    <div ng-app="empRApp" ng-controller="empRCtrl">
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Employee Details</h1>
+     
+      <hr>
+  
+      <label for="ename"><b>Employee Name</b></label>
+      <input type="text" placeholder="Enter Name" name="ename" id="ename" required>
+  
+      <label for="position"><b>Position </b></label>
+      <input type="text" placeholder="Enter Location" name="position" id="position"  required>
+      
+      <!-- <label for="deptID"><b>Department </b></label> -->
+      <!-- <input type="int" placeholder="Dept" name="deptID" id="deptID" required> -->
+
+      <label for="rdeptID"><b>Department </b></label>
+      <select name="rdeptID" id="rdeptID1" required>
+        </select><br><br>
+
+  
+      <button type="button" class="registerbtn" id="registerbtn">Insert</button>
+      
+      <div name="eshow" id="eshow" ng-bind-html="eshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+<div id="d1" style="display: none;"> 
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=int] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  select {
+  width: 20%; /* adjust the height as needed */
+  overflow-y: auto; /* add scrollbar if needed */
+  }
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #424874;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Budget Details</h1>
+     
+      <hr>
+  
+      <label for="head"><b>Budget Head</b></label>
+      <input type="text" placeholder="Enter The Head" name="head" id="head" required>
+  
+      <label for="amnt_san"><b>Amount Sanctioned </b></label>
+      <input type="int" placeholder="Enter Amount" name="amnt_san" id="amnt_san"  required>
+    </input>
+      
+    <label for="dateofsan"><b>Date of sanction </b></label>
+      <input type="date" placeholder="Start Date" name="dateofsan" id="dateofsan" required></input>
+      <br><br>
+
+      <label for="rdeptID"><b>Department </b></label>
+      <select name="rdeptID" id="rdeptID" required>
+        </select><br><br>
+
+        <label for="rempID"><b>Employee </b></label>
+        <select name="rempID" id="rempID" required>
+          </select><br><br>
+      
+  
+      <button type="button" class="registerbtn" id="budregisterbtn">Insert</button>
+      
+      <div name="bshow" id="bshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+
+<div id="d2" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  select {
+  width: 20%; /* adjust the height as needed */
+  overflow-y: auto; /* add scrollbar if needed */
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #424874;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Expense  Details</h1>
+     
+      <hr>
+  
+      <label for="purpose"><b>Purpose</b></label>
+      <input type="text" placeholder="Enter Purpose" name="purpose" id="purpose" required>
+  
+      <label for="amount"><b>Amount </b></label>
+      <input type="text" placeholder="Enter amount" name="amount" id="amount"  required>
+        </input>
+      <br><br>
+        <label for="edate"><b>Date </b></label>
+      <input type="date" placeholder="Enter Date" name="edate" id="edate" required>
+        </input><br><br>
+      
+        <label for="rbudgetID"><b>Budget </b></label>
+      <select name="rbudgetID" id="rbudgetID" required>
+        </select><br><br>
+  
+      <br><br>
+      
+
+
+      <button type="button" class="registerbtn" id="expregisterbtn">Insert</button>
+      
+      <div name="expshow" id="expshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+</div>
+
+<div id="d3" style="display: none;">
+    Login..
+</div>
+</body>
+<script type="text/javascript">
+    function  d0() {
+        document.getElementById("d0").style.display = "block";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }   
+    function  d1() {
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "block";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d2(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "block";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d3(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "block";      
+    }
+</script>
+<script>
+
+  $(document).ready(function() {
+    loademployees();
+    loadbudgets();
+    loadexpenses();
+    loadempnames();
+    loaddeptnames();
+    loaddeptnames1();
+
+    loadbudheads();
+    // loadresourcetypenames();
+    function loademployees(){
+
+       $.ajax({
+        url: 'http://127.0.0.1:5000/empshow',
+        type: 'POST',
+        success: function(data){
+          $('#eshow').html(data);
+        }
+      });
+    }
+
+    function loadbudgets(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/budshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#bshow').html(data);
+        }
+      });
+    }
+
+    function loadexpenses(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/expshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#expshow').html(data);
+        }
+       });
+    }
+
+    function loadempnames(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/empnameshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rempID').html(data);
+        }
+       });
+    }
+
+    function loaddeptnames(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/deptnameshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rdeptID1').html(data);
+        }
+       });
+    }
+
+    function loaddeptnames1(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/deptnameshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rdeptID').html(data);
+        }
+       });
+    }
+
+    function loadbudheads(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/budnameshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rbudgetID').html(data);
+        }
+       });
+    }
+ 
+    $("#registerbtn").click(function(){
+      var ename = $('#ename').val();
+      var position = $('#position').val();
+      var deptID = $('#rdeptID1').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/empinsert',
+        type: 'POST',
+        data: {ename: ename, position: position, deptID: deptID},
+        success: function(data){
+          alert(data);
+          loademployees();
+        }
+      });
+    });
+
+    $("#budregisterbtn").click(function(){
+      var amnt_san = $('#amnt_san').val();
+      var dateofsan = $('#dateofsan').val();
+      var head = $('#head').val();
+      var deptID = $('#rdeptID').val();
+      var empID = $('#rempID').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/budinsert',
+        type: 'POST',
+        data: {amnt_san: amnt_san, dateofsan: dateofsan, head: head, deptID: deptID, empID: empID},
+        success: function(data){
+          alert(data);
+          loadbudgets();
+        }
+      });
+    });
+  
+   $("#expregisterbtn").click(function(){
+     var purpose = $('#purpose').val();
+     var amount = $('#amount').val();
+     var edate = $('#edate').val();
+    var budgetID = $('#rbudgetID').val(); 
+    var fd=new FormData();
+    fd.append('purpose',purpose);
+    fd.append('amount',amount);
+    fd.append('edate',edate);
+    fd.append('budgetID',budgetID);    
+    //alert(files);
+     $.ajax({
+        url: 'http://127.0.0.1:5000/expinsert',
+        type: 'POST',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data){
+          alert(data);
+          loadexpenses();
+        }
+      });
+    });
+  });
+
+
+   
+       
+
+    </script>
+
+
+</html> 

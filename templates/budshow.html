@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+    
+        <form>
+<table>
+   
+    <tr>
+        <th>Head</th>
+        <th>Amount Sanctioned</th>
+        <th>Date of Start</th>
+        <th>Department</th>
+        <th>Employee</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for record in records %}
+      <tr>
+        <input type="hidden" name="sbudgetID" id="{{record.budgetID}}" ng-model="sbudgetID" value="{{record.budgetID}}" />
+        <td><input type=text name="shead" id="shead{{record.budgetID}}" ng-model="shead" value="{{record.head}}"/></td>
+        <td><input type=int name="samnt_san" id="samnt_san{{record.budgetID}}" ng-model="samnt_san" value="{{record.amnt_san}}"/></td>
+        <td><input type=date name="sdateofsan" id="sdateofsan{{record.budgetID}}" ng-model="sdateofsan" value="{{record.sdateofsan}}"/></td>
+        <td><input type=int name="sdeptID" id="sdeptID{{record.budgetID}}" ng-model="sdeptID" value="{{record.sdeptID}}"/></td>
+        <td><input type=int name="sempID" id="sempID{{record.budgetID}}" ng-model="sempID" value="{{record.sempID}}"/></td>
+        <td><a ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        <td><a href="http://127.0.0.1:5000/buddelete/{{record.budgetID}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        
+      </tr>
+    {% endfor %}
+  
+</table>
+<button type="button" onclick="greetFromFlask()" class="btn btn-primary">Greetings</button>
+</form>
+
+
+  </body>
+  
+  </html> 
+  

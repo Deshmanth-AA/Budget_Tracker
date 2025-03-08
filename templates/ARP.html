@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+<title>Auditor password reset</title>
+<style>
+    body {
+        padding-top: 2rem;
+    }
+    .container {
+        max-width: 640px;
+        margin: auto;
+    }
+    .registerbtn {
+        margin-top: 1rem;
+        background: blueviolet;
+    }
+    .signin {
+        margin-top: 2rem;
+    }
+    .form-box{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+    }
+    .button-field{
+        color: #9999;
+    }
+    input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #9999;
+  color: #81689D;
+}
+label{
+    color: blueviolet;
+}
+</style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+    </ul>
+    <ul>
+        <img src="DEPT LOGO.png" alt="DEPT LOGO" style="width:100px;height:100px;">
+    </ul>
+</nav>
+<form action="/action_page.php">
+  <div class="container">
+    <h1>RESET PASSWORD </h1>
+    <hr>
+    <div class="form-box">
+            <label for="dname"><b>NEW PASSWORD</b></label>
+            <input type="text" placeholder="Enter New Password" name="arnp" id="newpass" required>
+
+            <label for="loc"><b>CONFIRM NEW PASSWORD</b></label>
+            <input type="text" placeholder="Renter New Password" name="arcp" id="reentpass" required>
+    <button  type="button" class="registerbtn" onclick="updatePassword()">Update Password/button>
+  </div>
+  
+</form>
+</div>
+<script>
+  function updatePassword() {
+      var newPassword = document.getElementById('newpass').value;
+      var reenterPassword = document.getElementById('reentpass').value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/update_password', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+              alert('Password updated successfully!');
+          }
+      };
+      xhr.send(JSON.stringify({ newpass: newpass, reentpass: reentpass }));
+  }
+</script>
+</body>
+</html>

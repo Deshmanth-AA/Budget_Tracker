@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+<title>Dept password reset</title>
+<style>
+    body {
+        padding-top: 2rem;
+    }
+    .container {
+        max-width: 640px;
+        margin: auto; 
+
+    }
+    .registerbtn {
+        margin-top: 1rem;
+        background: blueviolet;
+    }
+    .signin {
+        margin-top: 2rem;
+    }
+    .form-box{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+    }
+    .button-field{
+        color: #9999;
+    }
+    input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #9999;
+  color: #81689D;
+}
+label{
+    color: blueviolet;
+}
+</style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+    </ul>
+    <ul>
+        <img src="DEPT LOGO.png" alt="DEPT LOGO" style="width:100px;height:100px;">
+    </ul>
+</nav>
+<form action="/action_page.php">
+  <div class="container">
+    <h1>RESET PASSWORD </h1>
+    <hr>
+    <div class="form-box">
+            <label for="dname"><b>NEW PASSWORD</b></label>
+            <input type="text" placeholder="Enter New Password" name="arnp" id="anp" required>
+
+            <label for="loc"><b>CONFIRM NEW PASSWORD</b></label>
+            <input type="text" placeholder="Renter New Password" name="arcp" id="arp" required>
+    <button onclick="location.href = 'deptlogin.html';" type="button" class="registerbtn" id="regr">SUBMIT</button>
+  </div>
+  
+</form>
+</div>
+<script>
+
+  $(document).ready(function() {
+
+    $("#regr").click(function(){
+      var uname = $('#dname').val();
+      var pwd = $('#loc').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/register',
+        type: 'POST',
+        data: {dname: dname, loc: loc},
+        success: function(data){
+          if(data == "success"){
+            window.location.href = 'http://127.0.0.1:5000/login';
+          }else{
+            alert('Invalid Username or Password');
+          }
+        }
+      });
+    });
+  
+
+  });
+</script>
+</body>
+</html>

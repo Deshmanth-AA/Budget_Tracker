@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+<title>Department Registration</title>
+<style>
+    * {
+      margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+    
+    }
+    .container {
+        max-width: 900px;
+        text-align:center;
+        margin: auto;
+    }
+    .form-box{
+    width: 90%;
+    max-width: 700px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+    }
+    .form-box h1{
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: blueviolet;
+    position: relative;
+    }
+    .form-box h1::after{
+    content: '';
+    width: 60px;
+    height: 4px;
+    border-radius: 3px;
+    background: blueviolet;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+    }
+    .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    }
+    .button {
+    width: 2in;
+    height: 1in;
+    background-color: #645CAA;
+    border: none;
+    border-radius: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    }
+    
+  
+
+</style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+    </ul>
+    <ul>
+      <img src="DEPT LOGO.png" alt="DEPT LOGO" style="width:100px;height:100px;">
+
+    </ul>
+</nav>
+  <div class="container">
+    <h1>Welcome To Department Budget Tracker</h1>
+    <div class="form-box">
+      <h1>Select Your Role</h1>
+      
+        <div class="button-container">
+          
+            <button type="button" class="button" id="aud" >AUDITOR</button>
+          
+          
+            <button type="button" class="button" id="dept" >DEPT</button>
+         
+
+        </div>
+      
+  </div>
+</div>
+
+  
+</form>
+<script>
+  $(document).ready(function() {
+    $("#aud").click(function(){
+            window.location.href = 'http://127.0.0.1:5000/login'; 
+    });
+    $("#dept").click(function(){
+       window.location.href = 'http://127.0.0.1:5000/deptlogin';
+    });
+});
+</script>
+</body>
+</html>
